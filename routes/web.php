@@ -33,6 +33,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         Route::get('/user/edit', 'App\Http\Controllers\UserController@editById')->name('userEdit');
         Route::get('/user/delete', 'App\Http\Controllers\UserController@delete')->name('userDelete');
     
+
+        Route::group(['prefix' => 'movies'], function(){ 
+            Route::get('/', 'App\Http\Controllers\MovieController@view');
+            Route::get('/add', 'App\Http\Controllers\MovieController@createView');
+            Route::post('/add', 'App\Http\Controllers\MovieController@create')->name('movieAdd');
+            Route::get('/update', 'App\Http\Controllers\MovieController@updateView');
+            Route::post('/update', 'App\Http\Controllers\MovieController@update')->name('movieUpdate');
+            Route::get('/delete', 'App\Http\Controllers\MovieController@delete')->name('deleteMovie');
+       
+        });
+
     });
 
 });

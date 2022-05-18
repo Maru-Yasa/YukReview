@@ -43,7 +43,7 @@
                             <a href="/admin/users" class="nav-link">users</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin" class="nav-link">Movies</a>
+                            <a href="/admin/movies" class="nav-link">Movies</a>
                         </li>
                         <li class="nav-item">
                             <a href="/admin" class="nav-link">Data Insights</a>
