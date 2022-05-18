@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/reload_captcha', 'App\Http\Controllers\CaptchaController@reloadCaptcha')->name('reloadCaptcha');
+
 Route::get('/', function(){
 
     return "hello";
@@ -48,6 +50,32 @@ Route::group(['prefix' => 'movie'], function(){
         Route::post('/create', 'App\Http\Controllers\Api\MovieController@create');
         Route::post('/update', 'App\Http\Controllers\Api\MovieController@update');
         Route::post('/delete', 'App\Http\Controllers\Api\MovieController@delete');
+    });
+
+});
+
+Route::group(['prefix' => 'actor'], function(){
+
+    Route::get('/getbyid', 'App\Http\Controllers\Api\ActorController@getById');
+    Route::get('/all', 'App\Http\Controllers\Api\ActorController@getAll');
+
+    Route::group(['middleware' => 'auth:sanctum'], function(){
+        Route::post('/create', 'App\Http\Controllers\Api\ActorController@create');
+        Route::post('/update', 'App\Http\Controllers\Api\ActorController@update');
+        Route::post('/delete', 'App\Http\Controllers\Api\ActorController@delete');
+    });
+
+});
+
+Route::group(['prefix' => 'review'], function(){
+
+    Route::get('/getbyid', 'App\Http\Controllers\Api\ReviewController@getById');
+    Route::get('/all', 'App\Http\Controllers\Api\ReviewController@getAll');
+
+    Route::group(['middleware' => 'auth:sanctum'], function(){
+        Route::post('/create', 'App\Http\Controllers\Api\ReviewController@create');
+        Route::post('/update', 'App\Http\Controllers\Api\ReviewController@update');
+        Route::post('/delete', 'App\Http\Controllers\Api\ReviewController@delete');
     });
 
 });

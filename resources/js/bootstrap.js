@@ -1,4 +1,9 @@
 window._ = require('lodash');
+window.Chart = require('chart.js');
+window.Swal = require('sweetalert2')
+try {
+    require('bootstrap');
+} catch (e) {}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
