@@ -23,7 +23,7 @@
     <script src="{{ asset('js/app.js') }}" ></script>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-            <div class="container">
+            <div class="container-fluid mx-3">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     YukReview
                 </a>

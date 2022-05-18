@@ -8,3 +8,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-icons/font/bootstrap-icons';
+
+.cut-text { 
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    width: 160px; 
+    height: 3em; 
+    white-space: nowrap;
+  }

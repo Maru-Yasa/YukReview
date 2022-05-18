@@ -18037,3 +18037,11 @@ textarea.form-control-lg {
 .bi-filetype-xlsx::before {
   content: "\f793";
 }
+
+.cut-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 160px;
+  height: 3em;
+  white-space: nowrap;
+}

@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','App\Http\Controllers\WelcomeController@index');
 
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/detail', 'App\Http\Controllers\WelcomeController@detail')->name('movieDetail');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 
