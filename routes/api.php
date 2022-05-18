@@ -38,3 +38,16 @@ Route::group(['prefix' => 'auth'], function(){
     });
 
 });
+
+Route::group(['prefix' => 'movie'], function(){
+
+    Route::get('/getbyid', 'App\Http\Controllers\Api\MovieController@getById');
+    Route::get('/all', 'App\Http\Controllers\Api\MovieController@getAll');
+
+    Route::group(['middleware' => 'auth:sanctum'], function(){
+        Route::post('/create', 'App\Http\Controllers\Api\MovieController@create');
+        Route::post('/update', 'App\Http\Controllers\Api\MovieController@update');
+        Route::post('/delete', 'App\Http\Controllers\Api\MovieController@delete');
+    });
+
+});

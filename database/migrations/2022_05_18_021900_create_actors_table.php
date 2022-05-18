@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('actors', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->string('as')->nullable();
+            $table->unsignedBigInteger('movie_id');
+
+            $table->foreign('movie_id')->references('id')->on('movies');
             $table->timestamps();
         });
     }
