@@ -1,6 +1,6 @@
 window._ = require('lodash');
 window.Chart = require('chart.js');
-window.Swal = require('sweetalert2')
+window.Swal = require('sweetalert2');
 try {
     require('bootstrap');
 } catch (e) {}

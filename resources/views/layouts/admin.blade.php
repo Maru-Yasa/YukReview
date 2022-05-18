@@ -20,8 +20,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    <script src="{{ asset('js/app.js') }}"></script>
+
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     YukReview Admin
@@ -33,7 +35,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="nav-item">
+                            <a href="/admin" class="nav-link">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/users" class="nav-link">users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin" class="nav-link">Movies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin" class="nav-link">Data Insights</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -78,6 +91,8 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+
     </div>
 </body>
 </html>

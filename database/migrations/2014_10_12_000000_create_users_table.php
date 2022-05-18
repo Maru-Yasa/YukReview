@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('gender')->default('other');
             $table->string('google_id')->nullable();
             $table->string('profile')->nullable();
-            $table->string('role')->default('admin');
+            $table->date('birth')->nullable();
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
