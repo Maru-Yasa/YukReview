@@ -35,8 +35,9 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->role }}</td>
                                     <td>
-                                        <a class="btn btn-outline-primary btn-sm" href=""><i class="bi bi-pencil-fill"></i></a>
-                                        <a class="btn btn-outline-danger btn-sm" href=""><i class="bi bi-trash-fill"></i></a>
+                                        
+                                        <a class="btn btn-outline-primary btn-sm" href="{{ route('userEdit', ['id'=>$user->id]) }}"><i class="bi bi-pencil-fill"></i></a>
+                                        <a class="btn btn-outline-danger btn-sm" href="{{ route('userDelete', ['id' => $user->id]) }}"><i class="bi bi-trash-fill"></i></a>
                                     </td>
                                 </tr> 
                                 @php

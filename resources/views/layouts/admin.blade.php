@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
 
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
@@ -38,6 +38,7 @@
                         <li class="nav-item">
                             <a href="/admin" class="nav-link">Profile</a>
                         </li>
+                        @if (Auth::user()->role == 'admin')
                         <li class="nav-item">
                             <a href="/admin/users" class="nav-link">users</a>
                         </li>
@@ -47,6 +48,7 @@
                         <li class="nav-item">
                             <a href="/admin" class="nav-link">Data Insights</a>
                         </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

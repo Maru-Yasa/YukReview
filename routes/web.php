@@ -24,8 +24,15 @@ Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->nam
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 
-    Route::get('/users', 'App\Http\Controllers\UserController@view')->name('usersView');
+   
     Route::post('/updateProfile', 'App\Http\Controllers\UserController@update')->name('updateProfile');
 
+    Route::group(['middleware' => 'admin'], function(){
+        Route::post('/updateuser', 'App\Http\Controllers\UserController@updateById')->name('updateUser');
+        Route::get('/users', 'App\Http\Controllers\UserController@view')->name('usersView');
+        Route::get('/user/edit', 'App\Http\Controllers\UserController@editById')->name('userEdit');
+        Route::get('/user/delete', 'App\Http\Controllers\UserController@delete')->name('userDelete');
+    
+    });
 
 });
