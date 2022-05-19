@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movies;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,10 +24,11 @@ class WelcomeController extends Controller
         return view('welcome', $data=['movies' => $movies]);
     }
 
-    public function detail(Request $req)
+    public function detail(Request $req, int $id)
     {
-        $movie = Movies::where('id', $req->id)->first();
-        return view('detailMovie', $data=['movie' => $movie]);
+        $movie = Movies::where('id', $id)->first();
+        $reviews = Reviews::where('movie_id', $movie->id)->paginate(5);
+        return view('detailMovie', $data=['movie' => $movie, 'reviews' => $reviews]);
     }
 
 }

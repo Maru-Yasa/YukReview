@@ -86,4 +86,18 @@ class UserController extends Controller
         return redirect('/admin/users')->with('success', 'Success delete user');
     }
 
+    public function getDataX()
+    {
+        $male = count(User::where('gender', 'male'));
+        $female = count(User::where('gender', 'female'));
+        $other = count(User::where('gender', 'other'));
+
+        return response()->json([
+            'male' => $male,
+            'female' => $female,
+            ''
+        ])
+
+    }
+
 }

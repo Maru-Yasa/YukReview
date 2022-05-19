@@ -18,7 +18,7 @@ Route::get('/','App\Http\Controllers\WelcomeController@index');
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/detail', 'App\Http\Controllers\WelcomeController@detail')->name('movieDetail');
+Route::get('/detail/{id}', 'App\Http\Controllers\WelcomeController@detail')->name('movieDetail');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 
@@ -30,8 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
         Route::get('/users', 'App\Http\Controllers\UserController@view')->name('usersView');
         Route::get('/user/edit', 'App\Http\Controllers\UserController@editById')->name('userEdit');
         Route::get('/user/delete', 'App\Http\Controllers\UserController@delete')->name('userDelete');
-    
-
+        
         Route::group(['prefix' => 'movies'], function(){ 
             Route::get('/', 'App\Http\Controllers\MovieController@view');
             Route::get('/add', 'App\Http\Controllers\MovieController@createView');
@@ -44,4 +43,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
     });
 
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+    Route::post('/review/add', 'App\Http\Controllers\ReviewController@create')->name('createReview');
 });

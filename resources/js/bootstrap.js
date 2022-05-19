@@ -1,5 +1,5 @@
 window._ = require('lodash');
-window.Chart = require('chart.js');
+window.Chart = require('chart.js/auto');
 window.Swal = require('sweetalert2');
 try {
     require('bootstrap');
