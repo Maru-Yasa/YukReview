@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('poster');
             $table->string('trailer');
             $table->integer('rating');
+            $table->integer('rating_count');
             $table->timestamps();
         });
     }

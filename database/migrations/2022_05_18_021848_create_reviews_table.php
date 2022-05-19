@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('rating');
             $table->unsignedBigInteger('movie_id');
 
-            $table->foreign('movie_id')->references('id')->on('movies');
+            $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

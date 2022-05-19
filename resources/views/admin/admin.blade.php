@@ -48,7 +48,7 @@
 
                         <div class="mb-3">
                           <label for="" class="form-label">Password</label>
-                          <input type="password" class="form-control" name="" id="" placeholder="">
+                          <input type="password" class="form-control" name="password" id="" placeholder="">
                           <small id="helpId" class="form-text text-muted">If you're not gonna change password don't fill it</small>
                         </div>
 

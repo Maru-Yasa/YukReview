@@ -27,6 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+Route::get('/usergetdatax', 'App\Http\Controllers\UserController@getDataX')->name('userGetDataX');
+
 Route::group(['prefix' => 'auth'], function(){
 
     Route::post('/login', 'App\Http\Controllers\Api\AuthController@login');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\ItemNotFoundException;
 
 class UserController extends Controller
@@ -13,18 +14,17 @@ class UserController extends Controller
     {
         $validate = $req->validate([
             'name' => 'required|min:3',
-            'password' => 'min:3',
             'gender' => 'required',
             'image' => 'mimes:jpg,png,jpeg'
         ]);
         $data = $req->except(['id','image']);
-
+        $data['password'] = Hash::make($req->password);
         if($req->image){
             $imageName = time().'.'.$req->image->extension();  
             $req->image->move(public_path('images'), $imageName);
             $data['profile'] = "/images/$imageName";
         }
-        
+
         try {
             $user = User::all()->where('id', auth()->user()->id)->firstOrFail();
             $user->update($data);
@@ -86,18 +86,20 @@ class UserController extends Controller
         return redirect('/admin/users')->with('success', 'Success delete user');
     }
 
+
     public function getDataX()
     {
-        $male = count(User::where('gender', 'male'));
-        $female = count(User::where('gender', 'female'));
-        $other = count(User::where('gender', 'other'));
+        $male = count(User::all()->where('gender', 'male'));
+        $female = count(User::all()->where('gender', 'female'));
+        $other = count(User::all()->where('gender', 'other'));
 
         return response()->json([
             'male' => $male,
             'female' => $female,
-            ''
-        ])
+            'other' => $other
+        ]);
 
     }
+
 
 }
