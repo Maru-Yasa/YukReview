@@ -70,5 +70,28 @@ class MovieController extends Controller
         ModelsMovies::where('id', $req->id)->first()->delete();
         return redirect('/admin/movies')->with('success', 'Success delete movie');
     }
+
+    public function getDataX()
+    {
+        
+        // $r_1 = 0;
+        // $r_2 = 0;
+        // $r_4 = 0;
+        // $r_5 = 0;
+        // $r_6 = 0;
+        // $r_7 = 0;
+        // $r_8 = 0;
+        // $r_9 = 0;
+        // $r_10 = 0;
+
+        $rating_count = [];
+
+        for ($i=1; $i < 11; $i++) { 
+            $rating_count[$i] = count(ModelsMovies::all()->where('rating', $i));
+        }
+
+        return response()->json($rating_count);
+
+    }
     
 }

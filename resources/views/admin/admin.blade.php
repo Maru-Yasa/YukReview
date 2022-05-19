@@ -13,7 +13,7 @@
                     @if (Auth::user()->profile == null)
                         <i class="bi bi-person-circle" style="font-size: 100px"></i>
                     @else
-                        <img class="rounded-circle img-thumbnail ratio ratio-1x1" src="{{ Auth::user()->profile }}" alt="" style="width: 100px;height:100px;object-fit:cover;">
+                        <img referrerpolicy="no-referrer" class="rounded-circle img-thumbnail ratio ratio-1x1" src="{{ Auth::user()->profile }}" alt="" style="width: 100px;height:100px;object-fit:cover;">
                     @endif
                     <style>
                         

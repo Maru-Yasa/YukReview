@@ -5,6 +5,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -103,6 +105,77 @@
                 </div>
             </div>
         </div>  
+        
+
+        <div class="col-md-8">
+            <div class="card mb-5 shadow">
+                <div class="card-header">
+                    User Insight
+                </div>
+                <div class="card-body">
+
+                    <canvas id="myChart" width="400" height="200"></canvas>
+                    <script>
+                        let url = "{{ route('movieGetDataX') }}";
+                        console.log(url);
+                        fetch(url).then(response => response.json())
+                        .then((data) => {
+                            console.log(data)
+                            let labels = [];
+                            for (let index = 1; index < 11; index++) {
+                                labels.push(index);
+                            }  
+                            let ratings = [];
+                            for (let index = 1; index < 11; index++) {
+                                ratings.push(data[index]);                                
+                            }                     
+                            const ctx = document.getElementById('myChart').getContext('2d');
+                            const myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: labels,
+                                    datasets: [{
+                                        label: 'Movie data insight by rating',
+                                        data: ratings,
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                            'rgba(54, 162, 235, 0.2)',
+                                            'rgba(255, 206, 86, 0.2)',
+                                            'rgba(75, 192, 192, 0.2)',
+                                            'rgba(153, 102, 255, 0.2)',
+                                            'rgba(255, 159, 64, 0.2)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)',
+                                            'rgba(54, 162, 235, 1)',
+                                            'rgba(255, 206, 86, 1)',
+                                            'rgba(75, 192, 192, 1)',
+                                            'rgba(153, 102, 255, 1)',
+                                            'rgba(255, 159, 64, 1)'
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        
+                        })
+
+ 
+                    </script>
+
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 

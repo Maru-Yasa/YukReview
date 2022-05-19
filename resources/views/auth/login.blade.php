@@ -47,6 +47,15 @@
                         </button>
                     </div>
                 </div>
+
+                <div class="mb-3">
+                    <div class="separator">or</div>
+                </div>
+
+                <div class="mb-3">
+                    <a class="btn btn-outline-primary d-block rounded-pill" href="{{ route('google_login') }}"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Login With Google</a>
+                </div>
+                
             </form>
         </div>
     </div>

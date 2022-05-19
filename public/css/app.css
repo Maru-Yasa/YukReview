@@ -18042,6 +18042,27 @@ textarea.form-control-lg {
   text-overflow: ellipsis;
   overflow: hidden;
   width: 160px;
-  height: 3em;
+  height: 1.2em;
   white-space: nowrap;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid gray;
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.25em;
 }

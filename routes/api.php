@@ -26,8 +26,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::get('/usergetdatax', 'App\Http\Controllers\UserController@getDataX')->name('userGetDataX');
+Route::get('/movegetdatax', 'App\Http\Controllers\MovieController@getDataX')->name('movieGetDataX');
 
 Route::group(['prefix' => 'auth'], function(){
 

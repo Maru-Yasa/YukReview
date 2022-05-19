@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/','App\Http\Controllers\WelcomeController@index');
 Route::get('/movies','App\Http\Controllers\WelcomeController@allMoviesView');
 Route::get('/scrap','App\Http\Controllers\ScrapperController@findBy');
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google_login');
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 Auth::routes();
 

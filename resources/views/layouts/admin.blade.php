@@ -67,7 +67,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @if (Auth::user()->profile)
-                                        <img src="{{ Auth::user()->profile }}" class="rounded-circle" style="width: 32px;height:32px;object-fit:cover;" alt="">
+                                        <img referrerpolicy="no-referrer" src="{{ Auth::user()->profile }}" class="rounded-circle" style="width: 32px;height:32px;object-fit:cover;" alt="">
                                     @endif   
                                     {{ Auth::user()->name }}
                                 </a>
