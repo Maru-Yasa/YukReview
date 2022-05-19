@@ -11,7 +11,7 @@
         <div class="col-10 row justify-content-center">
             <form action="" method="GET">
                 <div class="input-group col-md-6 mb-3">
-                    <input type="text" name="search" class="form-control" placeholder="Search local's movie" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <input type="text" name="search" class="form-control" value="{{ old('search') }}" placeholder="Search local's movie" aria-label="Recipient's username" aria-describedby="button-addon2">
                     <button type="submit" class="btn btn-outline-secondary" type="button" id="button-addon2"> <i class="bi bi-search"></i> search</button>
                 </div>                
             </form>

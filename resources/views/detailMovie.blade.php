@@ -27,7 +27,7 @@
 
         </div>
 
-        <div class="col-12 bg-white col-md-9 mt-5 rounded-5 row justify-content-center shadow px-3 py-4">
+        <div class="col-10 col-md-11 bg-white col-md-9 mt-5 rounded-5 row justify-content-center shadow px-3 py-4">
             <h2 class="">Trailer</h2>
             <div class="col-12">
                 <iframe src="{{ $movie->trailer }}" style="height: 400px;width: 100%;" frameborder="0"></iframe>

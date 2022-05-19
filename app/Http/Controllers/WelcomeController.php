@@ -38,7 +38,7 @@ class WelcomeController extends Controller
             $movies = Movies::where('title', 'like', "%$query%")->paginate(10);
             return view('movies', $data=['movies' => $movies]);
         }
-        $movies = DB::table('movies')->paginate(10);
+        $movies = DB::table('movies')->paginate(8);
         return view('movies', $data=['movies' => $movies]);
     }
 
