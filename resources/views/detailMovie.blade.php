@@ -3,7 +3,8 @@
 @section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-10 bg-white col-md-9 rounded-5 row shadow px-3 py-4">
+
+        <div class="col-10 bg-white col-md-9 mt-5 rounded-5 row shadow px-3 py-4">
 
             <div class="col-md-2">
                 <img src="{{ $movie->poster }}" class="img-thumbnail" alt="">
@@ -17,13 +18,20 @@
                     <span>Duration : {{ $movie->duration }}</span>
                 </div>
                 <div class="mb-1">
-                    <span>{{ $movie->rating }}/10 <i class="bi bi-star-fill text-warning"></i></span>
+                    <span>{{ $movie->rating }}/10 <i class="bi bi-star-fill text-warning"></i> | {{ $movie->rating_count }} <i class="bi bi-person-fill"></i> </span>
                 </div>
                 <div class="mt-2 mb-1">
                     <p>{{ $movie->synopsis }}</p>
                 </div>
             </div>
 
+        </div>
+
+        <div class="col-12 bg-white col-md-9 mt-5 rounded-5 row justify-content-center shadow px-3 py-4">
+            <h2 class="">Trailer</h2>
+            <div class="col-12">
+                <iframe src="{{ $movie->trailer }}" style="height: 400px;width: 100%;" frameborder="0"></iframe>
+            </div>
         </div>
 
         <div class="col-10 bg-white col-md-9 rounded-5 mt-5 row justify-content-center shadow px-3 py-4">

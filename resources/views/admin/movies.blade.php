@@ -79,7 +79,22 @@
                         function scrap(){
 
                             let url = document.getElementById('url').value
-                            console.log(url);
+                            $api = `/scrap?name=${url}`;
+                            Swal.showLoading();
+                            fetch($api).then(response => response.json())
+                            .then((data) => {
+                                Swal.hideLoading();
+                                Swal.fire({
+                                    icon: data.status,
+                                    title: data.status,
+                                    text: `${data.msg}`,
+                                    isConfirmed : () => {
+                                        location.reload()
+                                    }
+                                }).then(() => {
+                                    location.reload();
+                                })
+                            })
                         }
 
                     </script>

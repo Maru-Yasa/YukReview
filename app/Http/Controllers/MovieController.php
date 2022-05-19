@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movies as ModelsMovies;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ItemNotFoundException;
 
 class MovieController extends Controller
@@ -11,7 +12,7 @@ class MovieController extends Controller
 
     public function view()
     {
-        $movies = ModelsMovies::all();
+        $movies = DB::table('movies')->get();
         return view('admin/movies', $data=['movies' => $movies]);
     }
 

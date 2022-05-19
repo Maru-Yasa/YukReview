@@ -33,7 +33,7 @@ class ScrapperController extends Controller
             return response()->json([
                 'status' => 'success',
                 'msg' => "success scrapping $req->name"
-            ]);
+            ], 200);
 
         } else {
             return response()->json([

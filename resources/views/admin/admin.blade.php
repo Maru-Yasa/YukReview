@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 mb-5">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header">Profile</div>
 
                 <div class="card-body text-center">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="col-md-8 mb-5">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header">Edit Profile</div>
 
                 <div class="card-body p-5">

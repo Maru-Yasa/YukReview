@@ -14,7 +14,7 @@
                     All Users
                 </div>
                 <div class="card-body">
-
+                    <a href="{{ route('userExport') }}" download class="btn btn-primary">Export</a>
                     <table id="userTable" class="table">
                         <thead class="border-0 bg-primary text-white">
                             <tr>

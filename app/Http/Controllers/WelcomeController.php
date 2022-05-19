@@ -19,7 +19,7 @@ class WelcomeController extends Controller
 
     public function index()
     {
-        $movies = DB::table('movies')->paginate(5);
+        $movies = DB::table('movies')->paginate(4);
         // $movies = WelcomeController::paginateCollection($movies, 5);
         return view('welcome', $data=['movies' => $movies]);
     }
@@ -29,6 +29,24 @@ class WelcomeController extends Controller
         $movie = Movies::where('id', $id)->first();
         $reviews = Reviews::where('movie_id', $movie->id)->paginate(5);
         return view('detailMovie', $data=['movie' => $movie, 'reviews' => $reviews]);
+    }
+
+    public function allMoviesView(Request $req)
+    {
+        if($req->search){
+            $query = $req->search;
+            $movies = Movies::where('title', 'like', "%$query%")->paginate(10);
+            return view('movies', $data=['movies' => $movies]);
+        }
+        $movies = DB::table('movies')->paginate(10);
+        return view('movies', $data=['movies' => $movies]);
+    }
+
+    public function searchMovie(Request $req)
+    {
+        $movies = Movies::where('title', 'like', '%' . $req->query . '%')->paginate(10);
+        return view('movies', $data=['movies' => $movies]);
+
     }
 
 }
